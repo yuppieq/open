@@ -1,5 +1,5 @@
 #!name=CN Direct + Apple Split + Global Proxy
-#!desc=Private LAN and mainland China traffic DIRECT; Apple China domains DIRECT; Apple services outside China PROXY; all remaining traffic PROXY. Remote China and Apple rule lists are maintained upstream.
+#!desc=Private LAN and mainland China traffic DIRECT; Apple China domains DIRECT; Apple services outside China PROXY; all remaining traffic PROXY.
 #!author=ChatGPT
 #!homepage=https://github.com/yuppieq/open
 
@@ -24,13 +24,13 @@ DOMAIN-SUFFIX,apple.cn,DIRECT
 DOMAIN-SUFFIX,icloud.cn,DIRECT
 
 # ===== Mainland China domains and IP ranges: DIRECT =====
-# Compact mobile-friendly list, maintained upstream and refreshed daily
-RULE-SET,https://raw.githubusercontent.com/Mr-Grin/proxy-rules/main/china/lite/shadowrocket.list,DIRECT
+# CDN-hosted upstream list; source is maintained separately
+RULE-SET,https://cdn.jsdelivr.net/gh/Mr-Grin/proxy-rules@main/china/lite/shadowrocket.list,DIRECT
 GEOIP,CN,DIRECT
 
 # ===== Apple services outside China: PROXY =====
-# Apple domain/IP rules are evaluated after China rules
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple.list,PROXY
+# CDN-hosted upstream Apple list
+RULE-SET,https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Shadowrocket/Apple/Apple.list,PROXY
 
 # ===== All other unmatched overseas traffic: PROXY =====
 FINAL,PROXY
